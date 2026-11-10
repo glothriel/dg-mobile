@@ -12,8 +12,9 @@ gradle --no-daemon testDebugUnitTest lintDebug assembleDebug
 ```
 
 The APK is `app/build/outputs/apk/debug/app-debug.apk`.
-Push a version tag (for example, `git tag v0.1.0 && git push origin v0.1.0`)
-to run the Release workflow and publish the APK and `SHA256SUMS` on GitHub.
+Operaton prepares `release/<version>` and `.release/notes.md`. A `v*-rc.*` tag
+runs GHA and creates a draft prerelease with the APK and `SHA256SUMS`, never latest.
+Final releases reuse approved RC assets without rebuilding.
 
 ## Download and install
 
