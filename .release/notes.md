@@ -1,11 +1,7 @@
-# dg-mobile 0.2.1
+- Super feature 1
+- Super feature 2
+- Super feature 3
 
-Four-component RC integration test
+Planned release date: 2026-11-24
 
-Final build from approved `v0.2.1-rc.0` application code.
-
-Blog: https://example.test/blog-draft
-
-Migration coverage: All four demo apps
-
-Compatibility notes: None
+Built from `release/0.3.0`. This is a release candidate, not latest.
