@@ -1,9 +1,11 @@
-# dg-mobile 0.2.0-rc.0
-
-## Scope
+# dg-mobile 0.2.1
 
 Four-component RC integration test
 
-Planned release date: 2026-11-10
+Final build from approved `v0.2.1-rc.0` application code.
 
-Built from `release/0.2.0`. This is a release candidate, not latest.
+Blog: https://example.test/blog-draft
+
+Migration coverage: All four demo apps
+
+Compatibility notes: None
