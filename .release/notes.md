@@ -2,6 +2,10 @@
 - Super feature 2
 - Super feature 3
 
-Planned release date: 2026-11-24
+Final build from approved `v0.3.0-rc.0` application code.
 
-Built from `release/0.3.0`. This is a release candidate, not latest.
+Blog: http://foo.bar.baz
+
+Migration coverage: adad
+
+Compatibility notes: adada

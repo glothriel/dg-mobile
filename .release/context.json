@@ -1,6 +1,8 @@
 {
   "version": "0.3.0",
   "instance": "030b27a3-dd54-11f1-bcfa-a6551880ef3b",
-  "task": "56515d37-dd54-11f1-bcfa-a6551880ef3b",
-  "tag": "v0.3.0-rc.0"
+  "task": "0c7cd316-dd5d-11f1-bcfa-a6551880ef3b",
+  "tag": "v0.3.0",
+  "sourceRc": "v0.3.0-rc.0",
+  "sourceSha": "53950b28824f07970c398e0c3ff1f347fb8d8fa7"
 }
