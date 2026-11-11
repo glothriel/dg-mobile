@@ -1,11 +1,10 @@
-- Task1
-- Task 2
-- Task 3
+-Fajny ficzer 1
+- Fajny ficzer 2
 
-Final build from approved `v0.5.0-rc.0` application code.
+Final build from approved `v0.6.0-rc.0` application code.
 
-Blog: http://foo.bar.baz
+Blog: http://foo.bar
 
-Migration coverage: Nomigration docs
+Migration coverage: No migration documentation required
 
-Compatibility notes: No imvcompabilities -YOLO update!
+Compatibility notes: Everything compatible, go on
