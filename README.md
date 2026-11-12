@@ -3,6 +3,8 @@
 Minimal Operaton testing demo: a native Java Android app displaying **Hello world**.
 No external runtime libraries. Requires Android 6.0 (API 23) or newer.
 
+Hello from 0.7.1
+
 ## Build and release
 
 Use Java 17, Gradle 8.9, and Android SDK 35 (including Build Tools 35.0.0):
