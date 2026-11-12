@@ -2,5 +2,7 @@
   "version": "0.6.1",
   "instance": "978d4044-decb-11f1-9f5e-ae2e6755a954",
   "baseTag": "v0.6.0",
-  "baseSha": "a66bba12ae897a8f209ae5435bfa1eb773804757"
+  "baseSha": "a66bba12ae897a8f209ae5435bfa1eb773804757",
+  "task": "0baae69e-decc-11f1-9f5e-ae2e6755a954",
+  "tag": "v0.6.1-rc.0"
 }
