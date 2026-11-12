@@ -1,3 +1,11 @@
-Release candidate for 0.3.0.
+## super release!
+- Feature 4
+- Feature 5
 
-Commit notes are generated automatically after successful build verification.
+Final build from approved `v0.3.0-rc.0` application code.
+
+Blog: http://foobar.baz
+
+Migration coverage: - none required
+
+Compatibility notes: - everything compatible
