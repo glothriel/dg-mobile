@@ -1,3 +1,9 @@
-Release candidate for 0.6.0.
+Catalog-driven release demo
 
-Commit notes are generated automatically after successful build verification.
+Byte-for-byte promotion from approved `v0.6.0-rc.0`.
+
+Blog: http://foo.bar
+
+Migration coverage: - No special migration steps necessary
+
+Compatibility notes: - The release is compatible with the previous one
