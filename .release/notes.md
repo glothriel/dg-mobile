@@ -1,12 +1,3 @@
-## super release!
-- Feature 1
-- Feature 2
-- Feature 3
+Release candidate for 0.7.0.
 
-Final build from approved `v0.2.0-rc.0` application code.
-
-Blog: http://foo.bar.com
-
-Migration coverage: - No migration docs required, everything auto!
-
-Compatibility notes: - Everything compatible
+Commit notes are generated automatically after successful build verification.
