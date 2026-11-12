@@ -1,3 +1,3 @@
-# v0.1.0
+Release candidate for 0.2.0.
 
-Baseline release of the restored demo repository, preserving the current application code and release workflow.
+Commit notes are generated automatically after successful build verification.
