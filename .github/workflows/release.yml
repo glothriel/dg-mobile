@@ -13,6 +13,7 @@ concurrency:
 
 jobs:
   release:
+    if: contains(github.ref_name, '-rc.')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -40,12 +41,19 @@ jobs:
               assert {"AndroidManifest.xml", "classes.dex", "resources.arsc"} <= set(apk.namelist()), "Missing APK entries"
           PY
           "${ANDROID_HOME}/build-tools/35.0.0/apksigner" verify --verbose "dist/dg-mobile-${GITHUB_REF_NAME}.apk"
-          (cd dist && sha256sum *.apk > SHA256SUMS && sha256sum --check SHA256SUMS)
-      - name: Publish release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-payloads
+          path: dist/*
+          if-no-files-found: error
+          retention-days: 14
+  promote:
+    if: ${{ !contains(github.ref_name, '-rc.') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Promote approved RC bytes (never build)
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          test "$(jq -r .tag .release/context.json)" = "$GITHUB_REF_NAME"
-          flags=(--draft --latest=false)
-          if [[ "$GITHUB_REF_NAME" == *-rc.* ]]; then flags+=(--prerelease); fi
-          gh release create "$GITHUB_REF_NAME" dist/* --verify-tag "${flags[@]}" --title "dg-mobile $GITHUB_REF_NAME" --notes-file .release/notes.md
+        run: python3 .github/scripts/promote.py
