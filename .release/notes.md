@@ -1,3 +1,12 @@
-# v0.1.0
+## super release!
+- Feature 1
+- Feature 2
+- Feature 3
 
-Baseline release of the restored demo repository, preserving the current application code and release workflow.
+Final build from approved `v0.2.0-rc.0` application code.
+
+Blog: http://foo.bar.com
+
+Migration coverage: - No migration docs required, everything auto!
+
+Compatibility notes: - Everything compatible
