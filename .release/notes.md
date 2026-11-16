@@ -1,3 +1,9 @@
-Release candidate for 0.10.0.
+No features
 
-Commit notes are generated automatically after successful build verification.
+Blog: https://foo.bar
+
+Migration coverage: No special migration steps necessary
+
+Compatibility notes: The release is compatible with the previous one
+
+Release files are unchanged from the approved release candidate `v0.10.0-rc.0`.

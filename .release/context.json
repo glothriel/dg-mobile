@@ -2,6 +2,20 @@
   "version": "0.10.0",
   "instance": "2802d210-e19b-11f1-9841-cab1cc76ae7f",
   "baseSha": "cd955593ab9e0cd8ff4865a1280ac229e8666c5c",
-  "task": "990f681f-e19b-11f1-9841-cab1cc76ae7f",
-  "tag": "v0.10.0-rc.0"
+  "task": "0b251d36-e19e-11f1-9841-cab1cc76ae7f",
+  "tag": "v0.10.0",
+  "projectId": "mobile",
+  "repository": "glothriel/dg-mobile",
+  "catalogSha256": "25587c198b381ecb8d71f5f69bcbcb45d78d95250afbf2c4aefeff6339da9253",
+  "sourceRc": "v0.10.0-rc.0",
+  "payloads": [
+    {
+      "payloadId": "apk",
+      "sourceName": "dg-mobile-v0.10.0-rc.0.apk",
+      "name": "dg-mobile-v0.10.0.apk",
+      "sha256": "a53d3bbe6a33156b90ecef957fa3c55d56fa7d8f2f878dd64704c605de3fb4b0",
+      "size": 9625
+    }
+  ],
+  "sourceSha": "b5558217d01ad9b42d62aadf42ad373d7de203c6"
 }
