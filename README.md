@@ -12,9 +12,11 @@ gradle --no-daemon testDebugUnitTest lintDebug assembleDebug
 ```
 
 The APK is `app/build/outputs/apk/debug/app-debug.apk`.
-Operaton prepares `release/<version>` and release notes. Every `v*` tag builds
-an APK and a draft with `SHA256SUMS`. RCs are prereleases, never latest.
-Final tags rebuild approved code; Operaton publishes successful final builds as latest.
+Operaton prepares `release/<version>` and release notes. RC tags build an APK
+and upload the `release-payloads` Actions artifact. Operaton verifies the bytes
+and publishes an RC prerelease with `SHA256SUMS`, never latest. Final tags copy
+the approved RC bytes into a draft without rebuilding; Operaton verifies and
+publishes the final release.
 
 ## Download and install
 

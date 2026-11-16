@@ -57,7 +57,7 @@ def promote(context, tag, repository, read_api=api, command=gh):
     payloads = context['payloads']
     if not payloads:
         raise ValueError('No payload mapping')
-    reserved = {'SHA256SUMS', 'promotion-manifest.json', 'signing-manifest.json', 'signing-manifest.json.asc'}
+    reserved = {'SHA256SUMS', 'promotion-manifest.json'}
     for key in ('sourceName', 'name', 'payloadId'):
         names = [basename(item[key]) for item in payloads]
         if len(names) != len(set(name.casefold() for name in names)):
@@ -65,20 +65,16 @@ def promote(context, tag, repository, read_api=api, command=gh):
         if key != 'payloadId' and {name.casefold() for name in names} & {name.casefold() for name in reserved}:
             raise ValueError('Reserved payload name')
     for item in payloads:
-        if set(item) != {'payloadId', 'sourceName', 'name', 'sha256', 'size', 'signing'}:
+        if set(item) != {'payloadId', 'sourceName', 'name', 'sha256', 'size'}:
             raise ValueError('Invalid payload mapping fields')
         if (not re.fullmatch('[0-9a-f]{64}', item['sha256']) or type(item['size']) is not int
-                or item['size'] < 0 or item['signing'] not in ('none', 'gpg')):
-            raise ValueError('Invalid payload digest/size/policy')
+                or item['size'] < 0):
+            raise ValueError('Invalid payload digest/size')
     assets = release['assets']
     names = [basename(asset['name']) for asset in assets]
     if len(names) != len(set(name.casefold() for name in names)):
         raise ValueError('Duplicate source assets')
-    pair = {'signing-manifest.json', 'signing-manifest.json.asc'}
-    present = pair & set(names)
-    if present and present != pair or any(item['signing'] == 'gpg' for item in payloads) and present != pair:
-        raise ValueError('Missing original signing pair')
-    expected = {item['sourceName'] for item in payloads} | {'SHA256SUMS'} | present
+    expected = {item['sourceName'] for item in payloads} | {'SHA256SUMS'}
     if set(names) != expected:
         raise ValueError('Missing/extra source payloads')
     downloaded = {asset['name']: command('api', prefix + '/releases/assets/' + str(asset['id']),
@@ -95,14 +91,14 @@ def promote(context, tag, repository, read_api=api, command=gh):
     for name, digest in checksums.items():
         if hashlib.sha256(downloaded[name]).hexdigest() != digest:
             raise ValueError('Source checksum mismatch')
-    outputs = {name: downloaded[name] for name in present}
+    outputs = {}
     promoted = []
     for item in payloads:
         data = downloaded[item['sourceName']]
         if len(data) != item['size'] or hashlib.sha256(data).hexdigest() != item['sha256']:
             raise ValueError('Approved payload bytes differ')
         outputs[item['name']] = data
-        promoted.append({key: value for key, value in item.items() if key != 'signing'})
+        promoted.append(dict(item))
     outputs['promotion-manifest.json'] = canonical({
         'schema': 'dg-release-promotion-v1', 'catalogSha256': context['catalogSha256'],
         'projectId': context['projectId'], 'repository': repository, 'sourceRc': source,
